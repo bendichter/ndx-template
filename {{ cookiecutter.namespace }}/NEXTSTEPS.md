@@ -79,17 +79,32 @@ repository to your local filesystem.
 11. Edit `staged-extensions/{{ cookiecutter.namespace }}/ndx-meta.yaml`
 with information on where to find your NWB extension.
     - The YAML file MUST contain a dict with the following keys:
-      - name: {{ cookiecutter.namespace }}
-      - version: {{ cookiecutter.version }}
-      - src: <URL> : URL to the public repository with the sources of the extension
-      - pip: <URL> : URL for installing the extensions from PyPi
-      - license: <license> : name of the license of the extension
-      - maintainers: {{ cookiecutter.github_name }} : list of GitHub
-      usernames of those who will reliably maintain the extension
+        - name: {{ cookiecutter.namespace }}
+        - version: {{ cookiecutter.version }}
+        - src: <URL> : URL to the public repository with the sources of the extension
+        - pip: <URL> : URL for installing the extensions from PyPi
+        - license: <license> : name of the license of the extension
+        - maintainers: {{ cookiecutter.github_name }} : list of GitHub
+        usernames of those who will reliably maintain the extension
+    
+auto-generated:
+```yaml
+name: {{ cookiecutter.namespace }}
+version: {{ cookiecutter.version }}
+src: https://github.com/{{ cookiecutter.github_name }}/{{ cookiecutter.namespace }}.git
+pip: https://pypi.org/project/{{ cookiecutter.namespace }}/
+license: {{ cookiecutter.license }}
+maintainers:
+  - {{ cookiecutter.github_name }}
+```
 
 12. Edit `staged-extensions/{{ cookiecutter.namespace }}/README.md`
 to add information about your extension. You may copy it from
 `{{ cookiecutter.namespace }}/README.md`.
+
+```bash
+cp {{ cookiecutter.namespace }}/README.md staged-extensions/{{ cookiecutter.namespace }}/README.md
+```
 
 13. Git commit and push your changes to GitHub.
 
